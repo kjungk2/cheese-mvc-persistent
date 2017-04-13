@@ -80,7 +80,7 @@ public class MenuController {
     private String addItem(Model model, @ModelAttribute @Valid AddMenuItemForm newForm, Errors errors, @RequestParam int menuId) {
 
         if (errors.hasErrors()) {
-            return "menu/add-item";  // TODO: dunno about this
+            return "menu/add-item";  // dunno about this
         }
 
         Menu theMenu = menuDao.findOne(menuId);
@@ -89,7 +89,7 @@ public class MenuController {
 
         menuDao.save(theMenu);
 
-        return "menu/view/" + menuId;
+        return "redirect:/menu/view/" + menuId;
     }
 
 
